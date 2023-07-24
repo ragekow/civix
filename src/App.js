@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store';
 
@@ -13,23 +13,13 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
-        <Switch>
-          <Route path="/login">
-            <LoginPage />
-          </Route>
-          <Route path="/file-drop">
-            <FileDropPage />
-          </Route>
-          <Route path="/messaging">
-            <MessagingPage />
-          </Route>
-          <Route path="/website-setup">
-            <WebsiteSetupPage />
-          </Route>
-          <Route path="/">
-            <HomePage />
-          </Route>
-        </Switch>
+        <Routes>
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/file-drop" element={<FileDropPage />} />
+          <Route path="/messaging" element={<MessagingPage />} />
+          <Route path="/website-setup" element={<WebsiteSetupPage />} />
+          <Route path="/" element={<HomePage />} />
+        </Routes>
       </Router>
     </Provider>
   );
